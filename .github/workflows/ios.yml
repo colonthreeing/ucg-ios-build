@@ -12,24 +12,24 @@ jobs:
 
       - name: build archive and ipaify
         run: |
-          wget -O archive.zip "https://www.dropbox.com/scl/fi/fsv1lmd2l75jf18z45pso/6c4a062a-c8fe-11f0-838b-4c496c81ffba.zip?rlkey=puzd4wra59tlwd05np3r5pcoh&dl=1"
+          wget -O archive.zip "https://www.dropbox.com/scl/fi/z7rfx3p7xfjygifcr94ns/UncannyCatGolfPlaytest2.zip?rlkey=xvqp030hd6sl4fe5iubdv7s5e&st=xrah09n6&dl=1"
           unzip archive.zip -d .
 
-          xcodebuild archive -project project.xcodeproj -scheme 'project' -archivePath project.xcarchive -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          xcodebuild archive -project "Uncanny Cat Golf.xcodeproj" -scheme 'Uncanny Cat Golf' -archivePath "Uncanny Cat Golf.xcarchive" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
           mkdir Payload
-          mv project.xcarchive/Products/Applications/project.app Payload/project.app
+          mv "Uncanny Cat Golf.xcarchive/Products/Applications/Uncanny Cat Golf.app" Payload/uncannycatgolf.app
 
-          zip -r "project.ipa" "Payload"
+          zip -r "Uncanny Cat Golf.ipa" "Payload"
 
-          mv project.ipa ${{ runner.temp }}/project.ipa
+          mv "Uncanny Cat Golf.ipa" ${{ runner.temp }}/uncannycatgolf.ipa
 
 
       - name: Upload application
         uses: actions/upload-artifact@v4
         with:
-          name: project
-          path: ${{ runner.temp }}/project.ipa
+          name: uncannycatgolf
+          path: ${{ runner.temp }}/uncannycatgolf.ipa
           # you can also archive the entire directory
           # path: ${{ runner.temp }}/build
           retention-days: 3
