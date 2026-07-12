@@ -12,15 +12,15 @@ jobs:
 
       - name: build archive and ipaify
         run: |
-          wget -O archive.zip "https://www.dropbox.com/scl/fi/z7rfx3p7xfjygifcr94ns/UncannyCatGolfPlaytest2.zip?rlkey=xvqp030hd6sl4fe5iubdv7s5e&st=xrah09n6&dl=1"
+          wget -O archive.zip "https://www.dropbox.com/scl/fi/ovnpvpa4s6hjhzepmqcq8/iosbuildstuff.zip?rlkey=dy5ix57fl9a0qjcjiubv4p8kc&st=1owj8ugn&dl=1"
           unzip archive.zip -d .
 
-          cd UncannyCatGolfPlaytest2/
+          cd iosbuildstuff/
 
-          xcodebuild archive -project "Uncanny Cat Golf.xcodeproj" -scheme 'Uncanny Cat Golf' -archivePath "Uncanny Cat Golf.xcarchive" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          xcodebuild archive -project "ucg-mobile.xcodeproj" -scheme 'Uncanny Cat Golf' -archivePath "ucg-mobile.xcarchive" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
           mkdir Payload
-          mv "Uncanny Cat Golf.xcarchive/Products/Applications/Uncanny Cat Golf.app" Payload/uncannycatgolf.app
+          mv "ucg-mobile.xcarchive/Products/Applications/ucg-mobile.app" Payload/uncannycatgolf.app
 
           zip -r "Uncanny Cat Golf.ipa" "Payload"
 
