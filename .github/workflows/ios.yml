@@ -17,7 +17,7 @@ jobs:
 
           cd iosbuildstuff/
 
-          xcodebuild archive -project "ucg-mobile.xcodeproj" -scheme 'Uncanny Cat Golf' -archivePath "ucg-mobile.xcarchive" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          xcodebuild archive -project "ucg-mobile.xcodeproj" -scheme 'ucg-mobile' -archivePath "ucg-mobile.xcarchive" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
           mkdir Payload
           mv "ucg-mobile.xcarchive/Products/Applications/ucg-mobile.app" Payload/uncannycatgolf.app
