@@ -12,7 +12,7 @@ jobs:
 
       - name: build archive and ipaify
         run: |
-          wget -O archive.zip "https://www.dropbox.com/scl/fi/kpnyq9vycg6hx2etijd7g/iosbuildstuff.zip?rlkey=91leutbne4q3hl692wj5y62re&st=jz2wa4cx&dl=1"
+          wget -O archive.zip "https://www.dropbox.com/scl/fi/cyq2ndy63at76slzylbdw/iosbuildstuff.zip?rlkey=pkv2qau5qnh2dpqw6sq9uca4e&st=kgohqt2l&dl=1"
           unzip archive.zip -d .
 
           cd iosbuildstuff/
